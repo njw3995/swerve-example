@@ -40,11 +40,11 @@ public class DriveRobotRelative extends CommandBase{
     @Override
     public void execute () {
         double xVelocity   = translationLimiter.calculate(MathUtil.applyDeadband(
-                                                                vX.getAsDouble(), Constants.SwerveConstants.swerveDeadband));
+                                                                vX.getAsDouble(), Constants.SwerveConstants.SWERVE_DEADBAND));
         double yVelocity   = strafeLimiter.calculate(MathUtil.applyDeadband(
-                                                                vY.getAsDouble(), Constants.SwerveConstants.swerveDeadband));
+                                                                vY.getAsDouble(), Constants.SwerveConstants.SWERVE_DEADBAND));
         double angVelocity = rotationLimiter.calculate(MathUtil.applyDeadband(
-                                                                vOmega.getAsDouble(), Constants.SwerveConstants.swerveDeadband));
+                                                                vOmega.getAsDouble(), Constants.SwerveConstants.SWERVE_DEADBAND));
           // Drive using raw values.
           swerve.drive(new Translation2d(xVelocity, yVelocity)
                                         .times(controller.config.maxSpeed),

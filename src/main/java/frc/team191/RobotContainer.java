@@ -13,7 +13,6 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.team191.commands.drive.DriveFieldRelative;
 import frc.team191.commands.drive.DriveRobotRelative;
 import frc.team191.subsystems.SwerveSubsystem;
-
 public class RobotContainer 
 {
 
@@ -42,7 +41,7 @@ public class RobotContainer
     driver.povDown().onTrue(new InstantCommand(() -> swerve.setHeadingAngle(Math.round(swerve.getYaw().getRadians() / (2.0*Math.PI)) * Math.PI * 2 - Math.PI)));
     driver.povLeft().onTrue(new InstantCommand(() -> swerve.setHeadingAngle(Math.round(swerve.getYaw().getRadians() / (2.0*Math.PI)) * Math.PI * 2 + Math.PI/2)));
     driver.povRight().onTrue(new InstantCommand(() -> swerve.setHeadingAngle(Math.round(swerve.getYaw().getRadians() / (2.0*Math.PI)) * Math.PI * 2 - Math.PI/2)));
-    driver.leftBumper().onTrue(new InstantCommand(() -> swerve.setTranslationalScalar(0.25)));
-    driver.leftBumper().onFalse(new InstantCommand(() -> swerve.setTranslationalScalar(0.8)));
+    driver.leftBumper().onTrue(new InstantCommand(() -> swerve.setTranslationalScalar(Constants.SwerveConstants.SWERVE_SLOW_TRANSLATION)));
+    driver.leftBumper().onFalse(new InstantCommand(() -> swerve.setTranslationalScalar(Constants.SwerveConstants.SWERVE_NORMAL_TRANSLATION)));
   }
 }

@@ -117,7 +117,9 @@ public class Pigeon2Swerve extends SwerveIMU
   @Override
   public Optional<Rotation3d> getAngularVel()
   {
-    return Optional.empty();
+    double[] initial = new double[3];
+    imu.getRawGyro(initial);
+    return Optional.of(new Rotation3d(Math.toRadians(initial[0]), Math.toRadians(initial[1]), Math.toRadians(initial[2])));
   }
 
   /**

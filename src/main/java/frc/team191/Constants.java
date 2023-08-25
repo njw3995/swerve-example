@@ -14,7 +14,7 @@ public final class Constants {
     /* Field related constants */
     public static final class FieldConstants {
       // List of possible scoring locations as Pose2d objects
-      public static final List<Pose2d> scoringPositions =
+      public static final List<Pose2d> SCORING_POSITIONS =
           List.of(
               new Pose2d(
                   new Translation2d(0.555, 7.436),
@@ -63,27 +63,33 @@ public final class Constants {
     public static class SwerveConstants {
 
       // Joystick axis deadband for the swerve drive
-      public static final double swerveDeadband = 0.1;
+      public static final double SWERVE_DEADBAND = 0.1;
+
+      // Swerve default translational scalar
+      public static final double SWERVE_NORMAL_TRANSLATION = 0.8;
+
+      // Swerve slow translational scalar
+      public static final double SWERVE_SLOW_TRANSLATION = 0.25;
           
       // Hold time on motor brakes when disabled
-      public static final double wheelLockTime = 10;
+      public static final double WHEEL_LOCK_TIME = 10;
 
-      public static final boolean isFirstOrder = true;
+      public static final boolean IS_FIRST_ORDER = true;
 
-      public static final double dtConstant = 0.1;
+      public static final double DT_CONSTANT = 0.1;
 
-      public static final boolean headingCorrection = true;
+      public static final boolean HEADING_CORRECTION = true;
 
-      public static final boolean chassisVelocityCorrection = true;
+      public static final boolean CHASSIS_VELOCITY_CORRECTION = true;
     }
   
     /** Constants revolving around the vision subsystem. */
     public static final class VisionConstants {
       // Camera name
-      public static final String cameraName = "OV5647";
+      public static final String CAMERA_NAME = "OV5647";
   
       // Robot to camera transform
-      public static final Transform3d robotToCam =
+      public static final Transform3d ROBOT_TO_CAM =
           new Transform3d(
               new Translation3d(0.0, Units.inchesToMeters(1.5), Units.inchesToMeters(39.0)),
               new Rotation3d(0.0, 0.0, 0.0));
@@ -92,14 +98,14 @@ public final class Constants {
     /** Constants revolving around auton modes. */
     public static final class AutonConstants {
   
-      public static final double maxVelocity = 3.0;
-      public static final double maxAcceleration = 2.0;
-      public static final PathConstraints constraints =
-          new PathConstraints(AutonConstants.maxVelocity, AutonConstants.maxAcceleration);
+      public static final double MAX_VELOCITY = 3.0;
+      public static final double MAX_ACCELERATION = 2.0;
+      public static final PathConstraints CONSTRAINTS =
+          new PathConstraints(AutonConstants.MAX_VELOCITY, AutonConstants.MAX_ACCELERATION);
   
-      public static final double xyControllerP = 14;
-      public static final double xyControllerD = 0.6851;
-      public static final double thetaControllerP = 3.5;
+      public static final double XY_CONTROLLER_P = 14;
+      public static final double XY_CONTROLLER_D = 0.6851;
+      public static final double THETA_CONTROLLER_P = 3.5;
     }
   }
   

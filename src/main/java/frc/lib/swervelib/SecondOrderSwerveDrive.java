@@ -100,9 +100,9 @@ public class SecondOrderSwerveDrive extends SwerveDrive
    */
   private double              lastHeadingRadians           = 0;
 
-  private double              swerveTranslationScalar      = 0.8;
+  private double              swerveTranslationScalar;
 
-  private double              swerveRotationScalar         = 0.3;
+  private double              swerveRotationScalar;
 
   /**
    * Creates a new swerve drivebase subsystem. Robot is controlled via the {@link SecondOrderSwerveDrive#drive} method, or via the
@@ -233,7 +233,7 @@ public class SecondOrderSwerveDrive extends SwerveDrive
 
     // Thank you to Jared Russell FRC254 for Open Loop Compensation Code
     // https://www.chiefdelphi.com/t/whitepaper-swerve-drive-skew-and-second-order-kinematics/416964/5
-    if (Constants.SwerveConstants.chassisVelocityCorrection)
+    if (Constants.SwerveConstants.CHASSIS_VELOCITY_CORRECTION)
     {
       double dtConstant = 0.009;
       Pose2d robotPoseVel = new Pose2d(velocity.vxMetersPerSecond * dtConstant,
@@ -247,7 +247,7 @@ public class SecondOrderSwerveDrive extends SwerveDrive
 
     // Heading Angular Velocity Deadband, might make a configuration option later.
     // Originally made by Team 1466 Webb Robotics.
-    if (Constants.SwerveConstants.headingCorrection)
+    if (Constants.SwerveConstants.HEADING_CORRECTION)
     {
       if (Math.abs(rotation) < 0.01)
       {

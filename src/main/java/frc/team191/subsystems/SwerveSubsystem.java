@@ -43,7 +43,7 @@ public class SwerveSubsystem extends SubsystemBase
     SwerveDriveTelemetry.verbosity = TelemetryVerbosity.HIGH;
     try
     {
-      if(Constants.SwerveConstants.isFirstOrder) swerveDrive = new SwerveParser(directory).createFirstOrderSwerveDrive();
+      if(Constants.SwerveConstants.IS_FIRST_ORDER) swerveDrive = new SwerveParser(directory).createFirstOrderSwerveDrive();
       else                                        swerveDrive = new SwerveParser(directory).createSecondOrderSwerveDrive();
     } catch (Exception e)
     {
@@ -59,7 +59,7 @@ public class SwerveSubsystem extends SubsystemBase
    */
   public SwerveSubsystem(SwerveDriveConfiguration driveCfg, SwerveControllerConfiguration controllerCfg)
   {
-    if(Constants.SwerveConstants.isFirstOrder) swerveDrive = new FirstOrderSwerveDrive(driveCfg, controllerCfg);
+    if(Constants.SwerveConstants.IS_FIRST_ORDER) swerveDrive = new FirstOrderSwerveDrive(driveCfg, controllerCfg);
     else                                        swerveDrive = new SecondOrderSwerveDrive(driveCfg, controllerCfg);
   }
 

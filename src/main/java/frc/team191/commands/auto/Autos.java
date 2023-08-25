@@ -27,11 +27,11 @@ public final class Autos {
         new SwerveAutoBuilder(
             RobotContainer.swerve::getPose,
             RobotContainer.swerve::resetOdometry,
-            new PIDConstants(Constants.AutonConstants.xyControllerP, 0.0, 0.0),
-            new PIDConstants(Constants.AutonConstants.thetaControllerP, 0.0, 0.0),
+            new PIDConstants(Constants.AutonConstants.XY_CONTROLLER_P, 0.0, 0.0),
+            new PIDConstants(Constants.AutonConstants.THETA_CONTROLLER_P, 0.0, 0.0),
             RobotContainer.swerve::setChassisSpeeds,
             eventMap,
-            false, //NEED TO FIX
+            true,
             RobotContainer.swerve);
 
     autonChooser.setDefaultOption("No-op", new InstantCommand());
@@ -51,11 +51,11 @@ public final class Autos {
   public static Command move1Meter() {
     return autonBuilder.fullAuto(
         PathPlanner.loadPathGroup(
-            "Move 1 Meter", Constants.AutonConstants.constraints));
+            "Move 1 Meter", Constants.AutonConstants.CONSTRAINTS));
   }
   public static Command move1MeterBack() {
     return autonBuilder.fullAuto(
         PathPlanner.loadPathGroup(
-            "Move 1 Meter Back", Constants.AutonConstants.constraints));
+            "Move 1 Meter Back", Constants.AutonConstants.CONSTRAINTS));
   }
 }
