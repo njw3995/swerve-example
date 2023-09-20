@@ -29,9 +29,9 @@ public class RobotContainer
   {
     configureBindings();
     swerve.setDefaultCommand(new DriveFieldRelative(swerve, 
-                                                    () -> driver.getRawAxis(translationAxis),
-                                                    () -> driver.getRawAxis(strafeAxis),
-                                                    () -> driver.getRawAxis(rotationAxis))); 
+                                                    () -> -1*driver.getRawAxis(translationAxis),
+                                                    () -> -1*driver.getRawAxis(strafeAxis),
+                                                    () -> -1*driver.getRawAxis(rotationAxis))); 
   }
 
   private void configureBindings() 
@@ -39,8 +39,8 @@ public class RobotContainer
     driver.x().onTrue(new InstantCommand(() -> swerve.zeroGyro()));
     driver.povUp().onTrue(new InstantCommand(() -> swerve.setHeadingAngle(Math.round(swerve.getYaw().getRadians() / (2.0*Math.PI)) * Math.PI * 2)));
     driver.povDown().onTrue(new InstantCommand(() -> swerve.setHeadingAngle(Math.round(swerve.getYaw().getRadians() / (2.0*Math.PI)) * Math.PI * 2 - Math.PI)));
-    driver.povLeft().onTrue(new InstantCommand(() -> swerve.setHeadingAngle(Math.round(swerve.getYaw().getRadians() / (2.0*Math.PI)) * Math.PI * 2 + Math.PI/2)));
-    driver.povRight().onTrue(new InstantCommand(() -> swerve.setHeadingAngle(Math.round(swerve.getYaw().getRadians() / (2.0*Math.PI)) * Math.PI * 2 - Math.PI/2)));
+    driver.povLeft().onTrue(new InstantCommand(() -> swerve.setHeadingAngle(Math.round(swerve.getYaw().getRadians() / (2.0*Math.PI)) * Math.PI * 2 - Math.PI/2)));
+    driver.povRight().onTrue(new InstantCommand(() -> swerve.setHeadingAngle(Math.round(swerve.getYaw().getRadians() / (2.0*Math.PI)) * Math.PI * 2 + Math.PI/2)));
     driver.leftBumper().onTrue(new InstantCommand(() -> swerve.setTranslationalScalar(Constants.SwerveConstants.SWERVE_SLOW_TRANSLATION)));
     driver.leftBumper().onFalse(new InstantCommand(() -> swerve.setTranslationalScalar(Constants.SwerveConstants.SWERVE_NORMAL_TRANSLATION)));
   }

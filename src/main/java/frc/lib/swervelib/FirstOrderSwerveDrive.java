@@ -214,7 +214,7 @@ public class FirstOrderSwerveDrive extends SwerveDrive
     ChassisSpeeds velocity =
         fieldRelative
         ? ChassisSpeeds.fromFieldRelativeSpeeds(
-            translation.getX(), translation.getY(), rotation, heading)
+            translation.getX(), translation.getY(), rotation, heading.unaryMinus())
         : new ChassisSpeeds(translation.getX(), translation.getY(), rotation);
         
     // Heading Angular Velocity Deadband, might make a configuration option later.

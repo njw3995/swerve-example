@@ -66,7 +66,7 @@ public final class Constants {
       public static final double SWERVE_DEADBAND = 0.1;
 
       // Swerve default translational scalar
-      public static final double SWERVE_NORMAL_TRANSLATION = 0.8;
+      public static final double SWERVE_NORMAL_TRANSLATION = 0.6;
 
       // Swerve slow translational scalar
       public static final double SWERVE_SLOW_TRANSLATION = 0.25;
@@ -103,9 +103,8 @@ public final class Constants {
       public static final PathConstraints CONSTRAINTS =
           new PathConstraints(AutonConstants.MAX_VELOCITY, AutonConstants.MAX_ACCELERATION);
   
-      public static final double XY_CONTROLLER_P = 14;
-      public static final double XY_CONTROLLER_D = 0.6851;
-      public static final double THETA_CONTROLLER_P = 3.5;
+      public static final double XY_CONTROLLER_P = 4;
+      public static final double THETA_CONTROLLER_P = 1;
     }
   }
   
